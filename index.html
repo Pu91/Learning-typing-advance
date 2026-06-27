@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Typing Master</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS (Design) --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f8f9fa; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* Header & Language Selector */
+        .header { background-color: #ffffff; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10; }
+        .logo { font-size: 24px; font-weight: bold; color: #4361ee; }
+        .nav-container { display: flex; align-items: center; gap: 30px; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: #555; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: #4361ee; }
+        .header-lang select { padding: 5px 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; cursor: pointer; outline: none; background-color: #f4f7f6; color: #333; font-weight: 500; }
+
+        /* Hero Section */
+        .hero { display: flex; justify-content: space-between; align-items: center; padding: 50px 10%; background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); flex-wrap: wrap; }
+        .hero-content { flex: 1; min-width: 300px; }
+        .hero-content h1 { font-size: 2.5rem; color: #2b2d42; margin-bottom: 15px; min-height: 50px; }
+        .cursor { animation: blink 0.7s infinite; color: #4361ee; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .hero-content p { font-size: 1.1rem; color: #4a4e69; }
+        .hero-graphic { flex: 1; text-align: center; min-width: 300px; margin-top: 20px; }
+        .hero-graphic img { width: 100%; max-width: 300px; animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        /* Demo Section */
+        .demo-section { padding: 60px 10%; text-align: center; flex-grow: 1; }
+        .demo-section h2 { font-size: 2rem; color: #333; margin-bottom: 10px; }
+        .demo-intro { color: #666; margin-bottom: 30px; }
+        .demo-box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto 30px auto; }
+        .demo-text { font-size: 1.2rem; font-weight: 600; color: #4361ee; margin-bottom: 20px; background: #f1f3f5; padding: 15px; border-radius: 8px; }
+        textarea { width: 100%; height: 100px; padding: 15px; font-size: 1rem; border: 2px solid #ddd; border-radius: 8px; resize: none; outline: none; transition: 0.3s; }
+        textarea:focus { border-color: #4361ee; }
+
+        /* Auth Buttons */
+        .auth-buttons { display: flex; justify-content: center; gap: 20px; margin-bottom: 50px; }
+        .btn { padding: 12px 30px; font-size: 1rem; font-weight: bold; border: none; border-radius: 25px; cursor: pointer; transition: 0.2s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .login-btn { background-color: #4361ee; color: white; }
+        .register-btn { background-color: white; color: #4361ee; border: 2px solid #4361ee; }
+
+        /* --- AD SECTION CSS (Notun) --- */
+        .ad-container { margin-top: 20px; padding: 20px 0; border-top: 1px solid #eaeaea; }
+        .ad-label { font-size: 12px; color: #999; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .banner-ad { 
+            width: 100%; max-width: 728px; height: 90px; 
+            background: #e9ecef; border: 2px dashed #ced4da; 
+            margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; 
+            color: #6c757d; font-weight: bold; font-size: 18px; border-radius: 5px;
+        }
+        
+        .direct-ads-wrapper { 
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; 
+        }
+        .direct-ad { 
+            width: 100%; max-width: 300px; height: 250px; 
+            background: #e9ecef; border: 2px dashed #ced4da; 
+            display: flex; align-items: center; justify-content: center; 
+            color: #6c757d; font-weight: bold; font-size: 18px; border-radius: 5px;
+        }
+
+        /* Footer */
+        .footer { background-color: #1e253c; color: #d1d5db; margin-top: auto; font-size: 15px; }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; padding: 60px 10%; gap: 30px; }
+        .contact-col p { margin-bottom: 20px; font-weight: 600; color: #ffffff; display: flex; align-items: center; gap: 15px; font-size: 16px; cursor: pointer; }
+        .contact-col p i { font-size: 18px; }
+        .links-col h4 { color: #00d084; margin-bottom: 20px; font-size: 18px; font-weight: 600; }
+        .links-col ul { list-style: none; }
+        .links-col ul li { margin-bottom: 15px; }
+        .links-col ul li a { color: #d1d5db; text-decoration: none; transition: 0.3s; }
+        .links-col ul li a:hover { color: #ffffff; }
+        .social-col { display: flex; flex-direction: column; gap: 15px; }
+        .social-col a { color: #ffffff; font-size: 24px; transition: 0.3s; }
+        .social-col a:hover { color: #00d084; }
+        .footer-bottom { border-top: 1px solid #333d54; padding: 25px 10%; display: flex; justify-content: space-between; align-items: center; background-color: #1a2035; color: #ffffff; font-weight: 600; }
+        .fb-left { display: flex; align-items: center; gap: 10px; font-size: 16px; }
+        .fb-right a { color: #ffffff; text-decoration: none; border-bottom: 1px solid #ffffff; padding-bottom: 2px; transition: 0.3s; }
+        .fb-right a:hover { color: #00d084; border-color: #00d084; }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .header { flex-direction: column; gap: 15px; }
+            .nav-container { flex-direction: column; gap: 15px; }
+            .footer-main { flex-direction: column; text-align: left; }
+            .social-col { flex-direction: row; justify-content: flex-start; margin-top: 10px; }
+            .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">TypingMaster</div>
+        <div class="nav-container">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#" data-i18n="nav_level">Level</a></li>
+                    <li><a href="#" data-i18n="nav_profile">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="header-lang">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="bn">বাংলা (Bengali)</option>
+                    <option value="hi">हिन्दी (Hindi)</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1><span id="typewriter"></span><span class="cursor">|</span></h1>
+            <p data-i18n="hero_desc">Practice anywhere on your phone, tablet, or computer and increase your typing speed.</p>
+        </div>
+        <div class="hero-graphic">
+            <img src="https://cdn-icons-png.flaticon.com/512/3131/3131610.png" alt="Typing Graphic">
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <h2 data-i18n="demo_title">Try It Now!</h2>
+        <p class="demo-intro" data-i18n="demo_intro">Type the sentence below and see how fast you are!</p>
+        
+        <div class="demo-box">
+            <p class="demo-text" id="demo-quote" data-i18n="demo_text">"Success comes to those who type fast and never give up!"</p>
+            <textarea id="demo-input" placeholder="Type here..." data-i18n-placeholder="demo_placeholder"></textarea>
+        </div>
+
+        <div class="auth-buttons">
+            <button class="btn login-btn" data-i18n="btn_login">Login</button>
+            <button class="btn register-btn" data-i18n="btn_register">Register</button>
+        </div>
+
+        <div class="ad-container">
+            <p class="ad-label" data-i18n="ad_label">Advertisement</p>
+            
+            <div class="banner-ad">
+                Banner Ad Space (728 x 90)
+            </div>
+
+            <div class="direct-ads-wrapper">
+                <div class="direct-ad">
+                    Direct Ad Space (300 x 250)
+                </div>
+                <div class="direct-ad">
+                    Direct Ad Space (300 x 250)
+                </div>
+            </div>
+        </div>
+        </section>
+
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-col contact-col">
+                <p><i class="fa-solid fa-comments"></i> <span data-i18n="ft_chat">Chat With Sales</span></p>
+                <p><i class="fa-solid fa-phone"></i> 1 (888) 602-6756</p>
+                <p><i class="fa-solid fa-envelope"></i> sales@typingmaster.com</p>
+            </div>
+            
+            <div class="footer-col links-col">
+                <h4 data-i18n="ft_col1_title">Solutions</h4>
+                <ul>
+                    <li><a href="#" data-i18n="ft_col1_1">Typing Courses</a></li>
+                    <li><a href="#" data-i18n="ft_col1_2">Agencies</a></li>
+                    <li><a href="#" data-i18n="ft_col1_3">Small Businesses</a></li>
+                    <li><a href="#" data-i18n="ft_col1_4">Freelancers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col links-col">
+                <h4 data-i18n="ft_col2_title">Company</h4>
+                <ul>
+                    <li><a href="#" data-i18n="ft_col2_1">About Us</a></li>
+                    <li><a href="#" data-i18n="ft_col2_2">Careers</a></li>
+                    <li><a href="#" data-i18n="ft_col2_3">Customer Stories</a></li>
+                    <li><a href="#" data-i18n="ft_col2_4">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col links-col">
+                <h4 data-i18n="ft_col3_title">Resources</h4>
+                <ul>
+                    <li><a href="#" data-i18n="ft_col3_1">Blog</a></li>
+                    <li><a href="#" data-i18n="ft_col3_2">eBooks</a></li>
+                    <li><a href="#" data-i18n="ft_col3_3">Knowledge Base</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col social-col">
+                <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="fb-left">
+                <i class="fa-solid fa-keyboard"></i> <span data-i18n="ft_powered">Powered by TypingMaster</span>
+            </div>
+            <div class="fb-right">
+                <a href="#" data-i18n="ft_learn">Learn With Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- JavaScript (Logic) ---
+        const translations = {
+            en: {
+                nav_home: "Home", nav_level: "Level", nav_profile: "Profile",
+                hero_desc: "Practice anywhere on your phone, tablet, or computer and increase your typing speed.",
+                demo_title: "Try It Now!",
+                demo_intro: "Type the sentence below and see how fast you are!",
+                demo_text: '"Success comes to those who type fast and never give up!"',
+                demo_placeholder: "Type here...",
+                btn_login: "Login", btn_register: "Register",
+                ad_label: "Advertisement", // Notun add kora hoyeche
+                ft_chat: "Chat With Sales",
+                ft_col1_title: "Solutions", ft_col1_1: "Typing Courses", ft_col1_2: "Agencies", ft_col1_3: "Small Businesses", ft_col1_4: "Freelancers",
+                ft_col2_title: "Company", ft_col2_1: "About Us", ft_col2_2: "Careers", ft_col2_3: "Customer Stories", ft_col2_4: "Contact",
+                ft_col3_title: "Resources", ft_col3_1: "Blog", ft_col3_2: "eBooks", ft_col3_3: "Knowledge Base",
+                ft_powered: "Powered by TypingMaster", ft_learn: "Learn With Us"
+            },
+            bn: {
+                nav_home: "হোম", nav_level: "লেভেল", nav_profile: "প্রোফাইল",
+                hero_desc: "ফোন, ট্যাব বা কম্পিউটার—যেখানে খুশি প্র্যাকটিস করো আর নিজের টাইপিং স্পিড বাড়াও।",
+                demo_title: "এখনই চেষ্টা করো!",
+                demo_intro: "নিচের বাক্যটি টাইপ করে দেখো তোমার হাত কতো ফাস্ট!",
+                demo_text: '"যারা দ্রুত টাইপ করে এবং কখনো হাল ছাড়ে না, সাফল্য তাদেরই আসে!"',
+                demo_placeholder: "এখানে টাইপ করো...",
+                btn_login: "লগইন", btn_register: "রেজিস্টার",
+                ad_label: "বিজ্ঞাপন", // Notun add kora hoyeche
+                ft_chat: "আমাদের সাথে চ্যাট করুন",
+                ft_col1_title: "সমাধান", ft_col1_1: "টাইপিং কোর্স", ft_col1_2: "এজেন্সি", ft_col1_3: "ছোট ব্যবসা", ft_col1_4: "ফ্রিল্যান্সার",
+                ft_col2_title: "কোম্পানি", ft_col2_1: "আমাদের সম্পর্কে", ft_col2_2: "ক্যারিয়ার", ft_col2_3: "গ্রাহকের গল্প", ft_col2_4: "যোগাযোগ",
+                ft_col3_title: "রিসোর্স", ft_col3_1: "ব্লগ", ft_col3_2: "ইবুক", ft_col3_3: "নলেজ বেস",
+                ft_powered: "টাইপিং মাস্টার দ্বারা চালিত", ft_learn: "আমাদের সাথে শিখুন"
+            },
+            hi: {
+                nav_home: "होम", nav_level: "स्तर", nav_profile: "प्रोफ़ाइल",
+                hero_desc: "अपने फोन, टैबलेट या कंप्यूटर पर कहीं भी अभ्यास करें और अपनी टाइपिंग स्पीड बढ़ाएं।",
+                demo_title: "अभी प्रयास करें!",
+                demo_intro: "नीचे दिए गए वाक्य को टाइप करके देखें कि आप कितने तेज़ हैं!",
+                demo_text: '"सफलता उन्हीं को मिलती है जो तेज़ टाइप करते हैं और कभी हार नहीं मानते!"',
+                demo_placeholder: "यहां टाइप करें...",
+                btn_login: "लॉग इन", btn_register: "रजिस्टर",
+                ad_label: "विज्ञापन", // Notun add kora hoyeche
+                ft_chat: "सेल्स से चैट करें",
+                ft_col1_title: "समाधान", ft_col1_1: "टाइपिंग कोर्स", ft_col1_2: "एजेंसियां", ft_col1_3: "छोटे व्यवसाय", ft_col1_4: "फ्रीलांसर",
+                ft_col2_title: "कंपनी", ft_col2_1: "हमारे बारे में", ft_col2_2: "करियर", ft_col2_3: "ग्राहक की कहानियां", ft_col2_4: "संपर्क",
+                ft_col3_title: "संसाधन", ft_col3_1: "ब्लॉग", ft_col3_2: "ईबुक", ft_col3_3: "नॉलेज बेस",
+                ft_powered: "टाइपिंग मास्टर द्वारा संचालित", ft_learn: "हमारे साथ सीखें"
+            }
+        };
+
+        const typewriterData = {
+            en: ["Type Fast.", "Learn Quicker.", "Become a Pro!"],
+            bn: ["দ্রুত টাইপ করো.", "তাড়াতাড়ি শেখো.", "প্রো হয়ে ওঠো!"],
+            hi: ["तेज़ टाइप करें.", "जल्दी सीखें.", "प्रो बनें!"]
+        };
+
+        let currentLang = "en";
+        let textArray = typewriterData[currentLang];
+        let textArrayIndex = 0;
+        let charIndex = 0;
+        let typeTimeout;
+
+        const typewriterElement = document.getElementById("typewriter");
+        const languageSelect = document.getElementById("language-select");
+
+        // Language change function
+        languageSelect.addEventListener("change", (e) => {
+            currentLang = e.target.value;
+            updateLanguage(currentLang);
+        });
+
+        function updateLanguage(lang) {
+            const elements = document.querySelectorAll("[data-i18n]");
+            elements.forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
+            placeholders.forEach(el => {
+                const key = el.getAttribute("data-i18n-placeholder");
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            textArray = typewriterData[lang];
+            textArrayIndex = 0;
+            charIndex = 0;
+            typewriterElement.textContent = "";
+            clearTimeout(typeTimeout);
+            setTimeout(type, 500);
+        }
+
+        // Typewriter animation
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                typewriterElement.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                typeTimeout = setTimeout(type, 100);
+            } else {
+                typeTimeout = setTimeout(erase, 2000);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typewriterElement.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                typeTimeout = setTimeout(erase, 50);
+            } else {
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                typeTimeout = setTimeout(type, 600);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(type, 1000);
+        });
+    </script>
+</body>
+</html>
