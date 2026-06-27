@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pro Typing Master</title>
+    <!-- Icon er jonno FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- --- POPUNDER AD CODE --- -->
+    <script src="https://pl30096000.effectivecpmnetwork.com/19/ea/d0/19ead0918939cbb296df975ce7b05225.js"></script>
+    <!-- ------------------------ -->
+
     <style>
         /* --- CSS (Design) --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
@@ -41,31 +46,27 @@
         textarea:focus { border-color: #4361ee; }
 
         /* Auth Buttons */
-        .auth-buttons { display: flex; justify-content: center; gap: 20px; margin-bottom: 50px; }
+        .auth-buttons { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
         .btn { padding: 12px 30px; font-size: 1rem; font-weight: bold; border: none; border-radius: 25px; cursor: pointer; transition: 0.2s; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .login-btn { background-color: #4361ee; color: white; }
         .register-btn { background-color: white; color: #4361ee; border: 2px solid #4361ee; }
 
-        /* --- AD SECTION CSS (Notun) --- */
-        .ad-container { margin-top: 20px; padding: 20px 0; border-top: 1px solid #eaeaea; }
-        .ad-label { font-size: 12px; color: #999; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        /* AD SECTION CSS */
+        .ad-container { margin-top: 20px; padding: 20px 0; border-top: 1px solid #eaeaea; text-align: center; }
+        .ad-label { font-size: 12px; color: #999; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
         
         .banner-ad { 
-            width: 100%; max-width: 728px; height: 90px; 
-            background: #e9ecef; border: 2px dashed #ced4da; 
+            width: 100%; max-width: 468px; height: 60px; /* Tomar 468x60 ad-er size */
             margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; 
-            color: #6c757d; font-weight: bold; font-size: 18px; border-radius: 5px;
         }
         
         .direct-ads-wrapper { 
             display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; 
         }
         .direct-ad { 
-            width: 100%; max-width: 300px; height: 250px; 
-            background: #e9ecef; border: 2px dashed #ced4da; 
+            width: 100%; max-width: 300px; height: 250px; /* Tomar 300x250 ad-er size */
             display: flex; align-items: center; justify-content: center; 
-            color: #6c757d; font-weight: bold; font-size: 18px; border-radius: 5px;
         }
 
         /* Footer */
@@ -98,6 +99,7 @@
 </head>
 <body>
 
+    <!-- Header Section -->
     <header class="header">
         <div class="logo">TypingMaster</div>
         <div class="nav-container">
@@ -118,6 +120,7 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1><span id="typewriter"></span><span class="cursor">|</span></h1>
@@ -128,6 +131,7 @@
         </div>
     </section>
 
+    <!-- Demo & Auth Section -->
     <section class="demo-section">
         <h2 data-i18n="demo_title">Try It Now!</h2>
         <p class="demo-intro" data-i18n="demo_intro">Type the sentence below and see how fast you are!</p>
@@ -142,24 +146,60 @@
             <button class="btn register-btn" data-i18n="btn_register">Register</button>
         </div>
 
+        <!-- --- ADVERTISEMENTS SECTION --- -->
         <div class="ad-container">
             <p class="ad-label" data-i18n="ad_label">Advertisement</p>
             
+            <!-- Banner Ad (468x60) -->
             <div class="banner-ad">
-                Banner Ad Space (728 x 90)
+                <script>
+                  atOptions = {
+                    'key' : '6bc24c5707aba26a72d579a1dc643b57',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/6bc24c5707aba26a72d579a1dc643b57/invoke.js"></script>
             </div>
 
+            <!-- Direct Square Ads (300x250) -->
             <div class="direct-ads-wrapper">
+                <!-- Prothom 300x250 Ad -->
                 <div class="direct-ad">
-                    Direct Ad Space (300 x 250)
+                    <script>
+                      atOptions = {
+                        'key' : '85ab71a5d5cd6cc6bbe5abe423de7977',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                      };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/85ab71a5d5cd6cc6bbe5abe423de7977/invoke.js"></script>
                 </div>
+                
+                <!-- Ditio 300x250 Ad (Same code deya holo jate khali na thake) -->
                 <div class="direct-ad">
-                    Direct Ad Space (300 x 250)
+                    <script>
+                      atOptions = {
+                        'key' : '85ab71a5d5cd6cc6bbe5abe423de7977',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                      };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/85ab71a5d5cd6cc6bbe5abe423de7977/invoke.js"></script>
                 </div>
             </div>
         </div>
-        </section>
+        <!-- --------------------------------- -->
 
+    </section>
+
+    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-main">
             <div class="footer-col contact-col">
@@ -227,7 +267,7 @@
                 demo_text: '"Success comes to those who type fast and never give up!"',
                 demo_placeholder: "Type here...",
                 btn_login: "Login", btn_register: "Register",
-                ad_label: "Advertisement", // Notun add kora hoyeche
+                ad_label: "Advertisement",
                 ft_chat: "Chat With Sales",
                 ft_col1_title: "Solutions", ft_col1_1: "Typing Courses", ft_col1_2: "Agencies", ft_col1_3: "Small Businesses", ft_col1_4: "Freelancers",
                 ft_col2_title: "Company", ft_col2_1: "About Us", ft_col2_2: "Careers", ft_col2_3: "Customer Stories", ft_col2_4: "Contact",
@@ -242,7 +282,7 @@
                 demo_text: '"যারা দ্রুত টাইপ করে এবং কখনো হাল ছাড়ে না, সাফল্য তাদেরই আসে!"',
                 demo_placeholder: "এখানে টাইপ করো...",
                 btn_login: "লগইন", btn_register: "রেজিস্টার",
-                ad_label: "বিজ্ঞাপন", // Notun add kora hoyeche
+                ad_label: "বিজ্ঞাপন", 
                 ft_chat: "আমাদের সাথে চ্যাট করুন",
                 ft_col1_title: "সমাধান", ft_col1_1: "টাইপিং কোর্স", ft_col1_2: "এজেন্সি", ft_col1_3: "ছোট ব্যবসা", ft_col1_4: "ফ্রিল্যান্সার",
                 ft_col2_title: "কোম্পানি", ft_col2_1: "আমাদের সম্পর্কে", ft_col2_2: "ক্যারিয়ার", ft_col2_3: "গ্রাহকের গল্প", ft_col2_4: "যোগাযোগ",
@@ -257,7 +297,7 @@
                 demo_text: '"सफलता उन्हीं को मिलती है जो तेज़ टाइप करते हैं और कभी हार नहीं मानते!"',
                 demo_placeholder: "यहां टाइप करें...",
                 btn_login: "लॉग इन", btn_register: "रजिस्टर",
-                ad_label: "विज्ञापन", // Notun add kora hoyeche
+                ad_label: "विज्ञापन",
                 ft_chat: "सेल्स से चैट करें",
                 ft_col1_title: "समाधान", ft_col1_1: "टाइपिंग कोर्स", ft_col1_2: "एजेंसियां", ft_col1_3: "छोटे व्यवसाय", ft_col1_4: "फ्रीलांसर",
                 ft_col2_title: "कंपनी", ft_col2_1: "हमारे बारे में", ft_col2_2: "करियर", ft_col2_3: "ग्राहक की कहानियां", ft_col2_4: "संपर्क",
